@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 
 const Box = ({ title, description, children, action }) => (
-  <div className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
+  <div className="glass-card p-4 sm:p-8 rounded-3xl border border-slate-800 space-y-6 max-w-full overflow-hidden">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-800">
       <div>
         <h1 className="text-xl sm:text-2xl font-black text-white">{title}</h1>
@@ -159,9 +159,9 @@ export function Products() {
         />
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800">
+      <div className="overflow-x-auto rounded-2xl border border-slate-800 scrollbar-thin max-w-full">
+        <table className="w-full text-left text-xs min-w-[700px]">
+          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800 whitespace-nowrap">
             <tr>
               <th className="p-4">Sawirka & Alaabta</th>
               <th className="p-4">SKU</th>
@@ -452,9 +452,9 @@ export function Customers() {
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800">
+      <div className="overflow-x-auto rounded-2xl border border-slate-800 scrollbar-thin max-w-full">
+        <table className="w-full text-left text-xs min-w-[700px]">
+          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800 whitespace-nowrap">
             <tr>
               <th className="p-4">Magaca Macmiilka</th>
               <th className="p-4">Taleefanka</th>
@@ -896,9 +896,9 @@ export function Suppliers() {
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800">
+      <div className="overflow-x-auto rounded-2xl border border-slate-800 scrollbar-thin max-w-full">
+        <table className="w-full text-left text-xs min-w-[700px]">
+          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800 whitespace-nowrap">
             <tr>
               <th className="p-4">Qeybiyaha & Shirkada</th>
               <th className="p-4">Taleefanka</th>
@@ -1284,9 +1284,9 @@ export function Resellers() {
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800">
+      <div className="overflow-x-auto rounded-2xl border border-slate-800 scrollbar-thin max-w-full">
+        <table className="w-full text-left text-xs min-w-[700px]">
+          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800 whitespace-nowrap">
             <tr>
               <th className="p-4">Reseller / Wakiilka</th>
               <th className="p-4">Taleefanka</th>
@@ -1504,9 +1504,9 @@ export function Reports() {
   const { sales } = useApp();
   return (
     <Box title="Sales & Transaction Reports" description="Detailed transaction log with invoice breakdown and profit margin tracking">
-      <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full text-left text-xs">
-          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800">
+      <div className="overflow-x-auto rounded-2xl border border-slate-800 scrollbar-thin max-w-full">
+        <table className="w-full text-left text-xs min-w-[700px]">
+          <thead className="bg-slate-900/90 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-800 whitespace-nowrap">
             <tr>
               <th className="p-4">Invoice #</th>
               <th className="p-4">Date & Time</th>
