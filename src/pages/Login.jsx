@@ -5,9 +5,9 @@ import { users } from '../data/seed';
 
 export default function Login() {
   const { login } = useApp();
-  const [email, setEmail] = useState('owner@joospos.com');
-  const [password, setPassword] = useState('Admin@123');
-  const [pin, setPin] = useState('1234');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [pin, setPin] = useState('');
   const [err, setErr] = useState('');
 
   const handleLogin = (e) => {

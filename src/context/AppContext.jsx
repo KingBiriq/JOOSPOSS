@@ -6,7 +6,7 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem('pos_user');
-    if (!saved) return users[0]; // Default to owner Joos
+    if (!saved) return null;
     try {
       const u = JSON.parse(saved);
       if (u && (u.role === 'Milkiile' || u.role === 'Owner')) {
@@ -15,7 +15,7 @@ export function AppProvider({ children }) {
       }
       return u;
     } catch {
-      return users[0];
+      return null;
     }
   });
   
