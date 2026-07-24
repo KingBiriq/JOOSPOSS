@@ -252,25 +252,25 @@ export default function POS() {
 
             {/* Hardware / SKU Barcode Scanner Form */}
             <form onSubmit={handleBarcodeSubmit} className="relative w-full">
-              <QrCode className="absolute left-4 top-3.5 text-indigo-400" size={20} />
+              <QrCode className="absolute left-3.5 top-3.5 text-indigo-400" size={18} />
               <input
                 type="text"
-                placeholder="Scan / Gali SKU (e.g. BRQ-001)..."
+                placeholder="Scan / Gali SKU..."
                 value={skuInput}
                 onChange={(e) => setSkuInput(e.target.value)}
-                className="w-full glass-input py-3 pl-12 pr-20 rounded-2xl text-sm font-bold border-indigo-500/40 text-indigo-300 placeholder:text-slate-500"
+                className="w-full glass-input py-2.5 sm:py-3 pl-10 pr-16 rounded-2xl text-xs sm:text-sm font-bold border-indigo-500/40 text-indigo-300 placeholder:text-slate-500"
               />
               <button 
                 type="submit" 
-                className="absolute right-2 top-2 py-1.5 px-3 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-500 transition-all"
+                className="absolute right-1.5 top-1.5 py-1.5 px-3 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-500 transition-all shadow-md"
               >
                 Add
               </button>
             </form>
           </div>
 
-          {/* Quick Category Badges */}
-          <div className="flex items-center gap-2 overflow-x-auto w-full pb-1 scrollbar">
+          {/* Quick Category Badges - Touch Swipeable */}
+          <div className="flex items-center gap-2 overflow-x-auto w-full pb-1 scrollbar-none scroll-smooth">
             {categories.map((cat) => (
               <button
                 key={cat}

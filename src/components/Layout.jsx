@@ -195,13 +195,13 @@ export default function Layout() {
             {/* Hamburger Toggle button */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+              className="lg:hidden p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors flex-shrink-0"
             >
-              <Menu size={22} />
+              <Menu size={20} />
             </button>
 
-            <div>
-              <h2 className="text-lg sm:text-xl font-extrabold text-white flex items-center gap-2">
+            <div className="min-w-0 flex-1 truncate">
+              <h2 className="text-base sm:text-xl font-extrabold text-white truncate">
                 Soo dhawoow, {user?.name ? user.name.split(' ')[0] : 'User'} 👋
               </h2>
               <p className="text-xs text-slate-400 hidden sm:block">
@@ -211,17 +211,17 @@ export default function Layout() {
           </div>
 
           {/* Right Header Widget bar */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
             {/* Low Stock Alert Bell Button */}
             {lowStockCount > 0 && (
               <button
                 onClick={() => setLowStockModalOpen(true)}
-                className="relative p-2 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500 hover:text-white transition-all flex items-center gap-1.5"
+                className="relative p-1.5 sm:p-2 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500 hover:text-white transition-all flex items-center gap-1.5"
                 title={`${lowStockCount} items below minimum stock`}
               >
-                <Bell size={18} className="animate-bounce" />
+                <Bell size={16} className="animate-bounce" />
                 <span className="text-xs font-bold hidden sm:inline">{lowStockCount} Low Stock</span>
-                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-rose-500 text-white font-black text-[10px] grid place-items-center">
+                <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-rose-500 text-white font-black text-[9px] sm:text-[10px] grid place-items-center">
                   {lowStockCount}
                 </span>
               </button>
@@ -234,7 +234,7 @@ export default function Layout() {
             </div>
 
             {/* Status Pill */}
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] sm:text-xs font-bold">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
               <span className="hidden sm:inline">System</span> Online
             </div>
@@ -271,13 +271,13 @@ export default function Layout() {
         )}
 
         {/* Content Body */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 pb-24 lg:pb-8">
+        <main className="flex-1 p-3 sm:p-6 lg:p-8 pb-24 lg:pb-8 max-w-full overflow-x-hidden">
           <Outlet />
         </main>
       </div>
 
-      {/* NATIVE MOBILE BOTTOM NAVIGATION BAR */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0f172a]/95 backdrop-blur-xl border-t border-slate-800/90 py-2 px-3 flex justify-around items-center">
+      {/* NATIVE MOBILE BOTTOM NAVIGATION BAR WITH HORIZONTAL SCROLL & COMPACT LABELS */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0f172a]/95 backdrop-blur-xl border-t border-slate-800/90 py-1.5 px-2 flex items-center overflow-x-auto scrollbar-none gap-1 justify-around">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = location.pathname === item.path;
@@ -285,12 +285,14 @@ export default function Layout() {
             <button
               key={item.path}
               onClick={() => navigate(item.path)}
-              className={`flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all ${
-                isActive ? 'text-indigo-400 font-bold scale-105' : 'text-slate-400 hover:text-slate-200'
+              className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all flex-shrink-0 text-center ${
+                isActive ? 'text-indigo-400 font-bold bg-indigo-500/10' : 'text-slate-400 hover:text-slate-200'
               }`}
             >
-              <Icon size={20} className={isActive ? 'text-indigo-400 animate-pulse' : ''} />
-              <span className="text-[10px] font-semibold">{item.label}</span>
+              <Icon size={18} className={isActive ? 'text-indigo-400 animate-pulse' : ''} />
+              <span className="text-[9px] font-bold whitespace-nowrap">
+                {item.path === '/pos' ? 'POS' : item.path === '/products' ? 'Products' : item.path === '/resellers' ? 'Resellers' : item.label}
+              </span>
             </button>
           );
         })}
